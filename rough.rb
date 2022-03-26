@@ -3,10 +3,15 @@ def budget_app
     puts "---------------------------------------------------------------"
     puts %Q{Welcome to CHEEP, the little budget app for your command line}
     puts "---------------------------------------------------------------"
+    puts "|       ᕙ(`▿´)ᕗ cheep!               ᕙ(`▿´)ᕗ cheep!           |"
+    puts "==========##===========================##======================"
+    puts ""
+    puts "                  Let's get started!                           "
+    puts ""
+    puts "---------------------------------------------------------------"
     # end heading
 
-    puts "cheep! cheep!"
-    puts "Let's get started!"
+
     # while user cont is true loop is executed
     #user_continue = true
     #while user_continue == true
@@ -20,7 +25,7 @@ def budget_app
             {:option => "Compare", :selection => 3},
             {:option => "Goals", :selection => 4}
         ]
-
+        puts "Please enter a number to make your selection"
         # display options to user
         menu_options.each do |option|
             puts "#{option[:selection]}. #{option[:option]} "
@@ -67,8 +72,8 @@ def budget_app
 
             # end goals tool
         else
-            puts "Invalid selection, please try again"
             system "clear"
+            puts "Invalid selection, please try again"
         end
     
        
