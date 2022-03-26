@@ -49,22 +49,33 @@ def budget_app
             puts " ϵ( ‘ ◇ ’ )϶ Use the budget tool to track your expenses ϵ( ‘ ◇ ’ )϶ "
             puts "---------------------------------------------------------------"
 
-
+            user_input_data = {}
             #---------- income ---
             # ask user for gross income
             puts "Let's begin by adding your gross salary or amount"
             usr_income_input = gets.chomp.to_f
+            
             # ask user what period of time income relates to
-            puts "Please enter a time period"
-            # week 
-            #fortnight 
-            #month 
-            #year
+            puts "Please enter a time period"            
+        
+            time_periods = [
+                {:freq => "Week", :days => 7},
+                {:freq => "Fortnight", :days => 14},
+                {:freq => "Month", :days => 30},
+                {:freq => "Year", :days => 365}
+            ] 
+            
+            time_periods.each do |period| 
+                puts "#{period[:freq]} "
+            end
+            usr_freq_input = gets.chomp.capitalize
+            # user has entered amount and frequency. now what?
+            puts "You have entered " + "$" + usr_income_input.to_s + " over a period of one " + usr_freq_input
             # -----------------
 
             #------------expenses----
             # Each category is container for list 
-            exp_catagory =[ 
+            exp_category =[ 
                 {:exp => "Home"}, 
                 {:exp => "Bills"}, 
                 {:exp => "Food"}, 
@@ -73,8 +84,10 @@ def budget_app
                 {:exp => "Pets"}, 
                 {:exp => "Other"}
              ]
-            puts exp_catagory
-            puts "Choose a category to update your expenses"
+             puts "Choose a category to update your expenses"
+            exp_category.each do |expense|
+                puts "#{expense[:exp]}"
+            end
             #get user to make selection 
             # Home
 
