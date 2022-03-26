@@ -42,11 +42,17 @@ def budget_app
             puts  "*                       BUDGET TOOL                           *"
             puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
             # short description of functions and how to use?
-            puts "short exp of what this tool does goes here, i am placeholder text"
+            puts " ϵ( ‘ ◇ ’ )϶ Use the budget tool to track your expenses ϵ( ‘ ◇ ’ )϶ "
+            puts "---------------------------------------------------------------"
+
 
             #---------- income ---
             # ask user for gross income
+            puts "Let's begin by adding your gross salary or amount"
+            usr_income_input = gets.chomp.to_f
             # ask user what period of time income relates to (week, fortnight, month, year)
+            puts "Please enter a time period"
+            # week fortnight month year
             # -----------------
 
             #------------expenses----
@@ -76,10 +82,17 @@ def budget_app
             puts  "*                       SAVINGS TOOL                          *"
             puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
             # short description of functions and how to use?
+            puts "(　＾ Θ ＾) Use the savings tool to track your savings (＾ Θ ＾  ) "
 
+            puts "What is your current savings amount"
             #user enters amount
-            # create user_savings
-            # ask for what period of time the amount was saved over
+            puts "Please enter the date ddmmyy"
+            #user enters the date?
+            # create user_savings            
+            # ask for what period of time the amount was saved over (optional)
+
+            #user should be able to see saving logs( and periods?)
+            #user should be able to edit saving amount (add and subtract)
 
 
             # end savings tool
