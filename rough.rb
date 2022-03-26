@@ -14,30 +14,34 @@ def budget_app
 
     # while user cont is true loop is executed
     #user_continue = true
-    #while user_continue == true
+    #while user == true
+
         # ask user how they would like to continue
-        puts "How would you like to continue?"
+    puts "How would you like to continue?"
        
         # give user a list of options to choose from
-        menu_options = [
-            {:option => "Budget", :selection => 1},
-            {:option => "Savings", :selection => 2},
-            {:option => "Compare", :selection => 3},
-            {:option => "Goals", :selection => 4}
+    menu_options = [
+        {:option => "Budget", :selection => 1},
+        {:option => "Savings", :selection => 2},
+        {:option => "Compare", :selection => 3},
+        {:option => "Goals", :selection => 4}
         ]
-        puts "Please enter a number to make your selection"
-        # display options to user
-        menu_options.each do |option|
-            puts "#{option[:selection]}. #{option[:option]} "
+   
+
+    puts "Please enter a number to make your selection"
+    # display options to user
+    menu_options.each do |option|
+        puts "#{option[:selection]}. #{option[:option]} "
         end
 
-        # user to enter numeric value stating their selection from options 
-        usr_opt_select = gets.chomp.to_i
+    # user to enter numeric value stating their selection from options 
+    usr_opt_select = gets.chomp.to_i
         # query user input, does it match a menu option
         case usr_opt_select
-            # start budget tool 
+
+         # start budget tool 
         when usr_opt_select = 1
-            system "clear"
+         system "clear"
             puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
             puts  "*                       BUDGET TOOL                           *"
             puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
@@ -50,14 +54,32 @@ def budget_app
             # ask user for gross income
             puts "Let's begin by adding your gross salary or amount"
             usr_income_input = gets.chomp.to_f
-            # ask user what period of time income relates to (week, fortnight, month, year)
+            # ask user what period of time income relates to
             puts "Please enter a time period"
-            # week fortnight month year
+            # week 
+            #fortnight 
+            #month 
+            #year
             # -----------------
 
             #------------expenses----
+            # Each category is container for list 
+            exp_catagory =[ 
+                {:exp => "Home"}, 
+                {:exp => "Bills"}, 
+                {:exp => "Food"}, 
+                {:exp => "Transport"}, 
+                {:exp => "Children"}, 
+                {:exp => "Pets"}, 
+                {:exp => "Other"}
+             ]
+            puts exp_catagory
+            puts "Choose a category to update your expenses"
+            #get user to make selection 
+            # Home
+
             # ask what bills/expenses the user has
-            # get user to input bill name - should i give user the basic names and they enter n and freq only? (break into sections? home, bills, transport etc)
+            # get user to input bill name - should i give user the basic names and they enter n and freq only? (break into category? home, bills, transport etc)
             # get user to input bill amount
             #get user to input frequency
             #------------
@@ -73,9 +95,9 @@ def budget_app
 
 
 
-            # end budget tool 
+        # end budget tool 
 
-            # start savings tool
+        # start savings tool
         when usr_opt_select = 2
             system "clear"
             puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
@@ -93,6 +115,7 @@ def budget_app
 
             #user should be able to see saving logs( and periods?)
             #user should be able to edit saving amount (add and subtract)
+            #usr should be able to see when the savings was edited also
 
 
             # end savings tool
@@ -104,6 +127,7 @@ def budget_app
             puts  "*                       COMPARISON TOOL                       *"
             puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"   
             # short description of functions and how to use?
+            
 
 
             # end comparison tool
@@ -116,23 +140,18 @@ def budget_app
             puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
             # short description of functions and how to use?
 
+            #user to enter item
+            #user to enter price
+
+
 
             # end goals tool
         else
             system "clear"
             puts " (⁽ؔ˙⁾ ⊝ ⁽ؔ˙⁾) Invalid selection, please try again  ლ(⁰ ⊖ ⁰ლ)"
         end
-    
-       
-    #end
-    
-
-
- 
 
   
 
-
-
-end
+    end
 budget_app
