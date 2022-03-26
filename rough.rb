@@ -8,8 +8,8 @@ def budget_app
     puts "cheep! cheep!"
     puts "Let's get started!"
     # while user cont is true loop is executed
-    user_continue = true
-    while user_continue == true
+    #user_continue = true
+    #while user_continue == true
         # ask user how they would like to continue
         puts "How would you like to continue?"
        
@@ -30,24 +30,51 @@ def budget_app
         usr_opt_select = gets.chomp.to_i
         # query user input, does it match a menu option
         case usr_opt_select
+            # start budget tool 
         when usr_opt_select = 1
-            puts "you have selected Budget tool"          
-        
-        when usr_opt_select = 2
-            puts "You have selected Savings tool"
+            system "clear"
+            puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
+            puts  "*                       BUDGET TOOL                           *"
+            puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
 
+            # end budget tool 
+
+            # start savings tool
+        when usr_opt_select = 2
+            system "clear"
+            puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
+            puts  "*                       SAVINGS TOOL                          *"
+            puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
+
+            # end savings tool
+
+            # start comparison tool
         when usr_opt_select = 3
-            puts "You have selected Comparison tool"   
+            system "clear"
+            puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
+            puts  "*                       COMPARISON TOOL                       *"
+            puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"   
+
+            # end comparison tool
+
+            # start goals tool
         when usr_opt_select = 4 
-            puts  "You have selected Goals tool"
-        
+            system "clear"
+            puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
+            puts  "*                      GOALS TOOL                             *"
+            puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
+
+
+            # end goals tool
         else
             puts "Invalid selection, please try again"
+            system "clear"
         end
-    when "q"
-        user_continue = false
-        system "clear"
-    end
+    
+       
+    #end
+    
+
 
  
 
