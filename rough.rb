@@ -41,6 +41,31 @@ def budget_app
             puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
             puts  "*                       BUDGET TOOL                           *"
             puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
+            # short description of functions and how to use?
+            puts "short exp of what this tool does goes here, i am placeholder text"
+
+            #---------- income ---
+            # ask user for gross income
+            # ask user what period of time income relates to (week, fortnight, month, year)
+            # -----------------
+
+            #------------expenses----
+            # ask what bills/expenses the user has
+            # get user to input bill name - should i give user the basic names and they enter n and freq only? (break into sections? home, bills, transport etc)
+            # get user to input bill amount
+            #get user to input frequency
+            #------------
+            
+            #------------Summary-----
+            # user can chose budget period (week, fortnight, month, year)
+            # list expenses  totalled for each sect (home, bills, etc)
+            #disp income
+            #disp disposable income 
+            #---------------
+
+
+
+
 
             # end budget tool 
 
@@ -50,6 +75,12 @@ def budget_app
             puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
             puts  "*                       SAVINGS TOOL                          *"
             puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
+            # short description of functions and how to use?
+
+            #user enters amount
+            # create user_savings
+            # ask for what period of time the amount was saved over
+
 
             # end savings tool
 
@@ -59,6 +90,8 @@ def budget_app
             puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
             puts  "*                       COMPARISON TOOL                       *"
             puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"   
+            # short description of functions and how to use?
+
 
             # end comparison tool
 
@@ -68,12 +101,13 @@ def budget_app
             puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
             puts  "*                      GOALS TOOL                             *"
             puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
+            # short description of functions and how to use?
 
 
             # end goals tool
         else
             system "clear"
-            puts "Invalid selection, please try again"
+            puts " (⁽ؔ˙⁾ ⊝ ⁽ؔ˙⁾) Invalid selection, please try again  ლ(⁰ ⊖ ⁰ლ)"
         end
     
        
