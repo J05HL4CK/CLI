@@ -255,6 +255,10 @@ def budget_app
 
     end
 def cheep
+
+    #enter all the fluff later just get it pumpin!
+    # might be easier to break off some of the fluff into chunks
+    # refactor some processes after getting them working (block it up bruh)
 puts "welcome"
 puts "how to continue?"
 # put up list of options 
@@ -264,7 +268,8 @@ puts "enter a num to make a selection"
 user_option = gets.chomp.to_i
 user_input_data = {}
 case user_option
-when user_option = 1
+when  1
+    
     system "clear"
     puts "budget"
     puts "get started, enter your annual salary"
@@ -280,10 +285,22 @@ when user_option = 1
     expenses = []
     expenses << {:item => item, :cost => cost, :days => frequency}
     #--------end loop
-    puts expenses
+    expenses.each do |bill|
+         puts "In the last #{bill[:days]} days you spent #{bill[:cost]} on #{bill[:item]}!!"
+    end
     
+when 2
+    system "clear"
+    puts "savings"
+    puts "what is your current savings? please enter an amount"
+amount = gets.chomp.to_f
+puts "enter the date"
+date = gets.chomp.to_i
+savings = []
+savings << {:n => amount, :mmddyy => date}
+puts savings
 
-    #puts expenses
+
 else
     puts "you're an invalid"
 end
