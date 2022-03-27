@@ -260,10 +260,33 @@ puts "how to continue?"
 # put up list of options 
 options = ['Budget', 'Savings', 'Goals', 'Compare']
 options.each_with_index { |item, index| puts "#{index + 1}. #{item}" }
-
-
-
+puts "enter a num to make a selection"
+user_option = gets.chomp.to_i
+user_input_data = {}
+case user_option
+when user_option = 1
+    system "clear"
+    puts "budget"
+    puts "get started, enter your annual salary"
+    user_salary = gets.chomp.to_f
+    puts 'great lets update expenses'
+    # make this loop----------
+    puts 'type a label for your expense ie: rent or telephone bill'
+    item = gets.chomp.downcase
+    puts 'how much u pay'
+    cost = gets.chomp.to_f
+    puts "how often in days"
+    frequency = gets.chomp.to_i
+    expenses = []
+    expenses << {:item => item, :cost => cost, :days => frequency}
+    #--------end loop
+    puts expenses
     
+
+    #puts expenses
+else
+    puts "you're an invalid"
+end
     
 end
 cheep
