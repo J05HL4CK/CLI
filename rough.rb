@@ -36,7 +36,7 @@ def budget_app
 
     # user to enter numeric value stating their selection from options 
     usr_opt_select = gets.chomp.to_i
-        # query user input, does it match a menu option
+        # query user input, does it match a menu option (can't get this to function how i want, brute force it with case)
         case usr_opt_select
 
          # start budget tool 
@@ -49,7 +49,11 @@ def budget_app
             puts " ϵ( ‘ ◇ ’ )϶ Use the budget tool to track your expenses ϵ( ‘ ◇ ’ )϶ "
             puts "---------------------------------------------------------------"
 
+
+            #store user inputs 
             user_input_data = {}
+
+
             #---------- income ---
             # ask user for gross income
             puts "Let's begin by adding your gross salary or amount"
@@ -69,8 +73,18 @@ def budget_app
                 puts "#{period[:freq]} "
             end
             usr_freq_input = gets.chomp.capitalize
-            # user has entered amount and frequency. now what?
-            puts "You have entered " + "$" + usr_income_input.to_s + " over a period of one " + usr_freq_input
+           
+           # store user data in hash (want user to continue using program - save so inputs are not lost on exit) 
+           user_input_data[:user_income] = usr_income_input
+           user_input_data[:user_income_freq] = usr_freq_input
+           puts user_input_data
+           
+           # verify if usr_freq_input matches a listed value
+           #now we have income and freq(in days) 
+           # prompt user to enter some expenses
+
+           
+           puts "Next up, let's enter some expenses"
             # -----------------
 
             #------------expenses----
@@ -84,20 +98,22 @@ def budget_app
                 {:exp => "Pets"}, 
                 {:exp => "Other"}
              ]
-             puts "Choose a category to update your expenses"
+             puts "Choose a category to update"
             exp_category.each do |expense|
                 puts "#{expense[:exp]}"
             end
             #get user to make selection 
-            # Home
+            # user to update section with name, amount and frequency
+            # send user input to hash for saving
 
-            # ask what bills/expenses the user has
-            # get user to input bill name - should i give user the basic names and they enter n and freq only? (break into category? home, bills, transport etc)
-            # get user to input bill amount
-            #get user to input frequency
-            #------------
+
+
             
-            #------------Summary-----
+
+               
+            
+            
+            #------------Summary----- (make summary a separate tool?)
             # user can chose budget period (week, fortnight, month, year)
             # list expenses  totalled for each sect (home, bills, etc)
             #disp income
