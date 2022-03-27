@@ -36,6 +36,7 @@ def budget_app
 
     # user to enter numeric value stating their selection from options 
     usr_opt_select = gets.chomp.to_i
+        
         # query user input, does it match a menu option (can't get this to function how i want, brute force it with case)
         case usr_opt_select
 
@@ -61,7 +62,11 @@ def budget_app
             
             # ask user what period of time income relates to
             puts "Please enter a time period"            
-        
+            # Week = 7
+            # Fortnight = 14
+            # Month = 30
+            # Year = 365
+    
             time_periods = [
                 {:freq => "Week", :days => 7},
                 {:freq => "Fortnight", :days => 14},
@@ -73,10 +78,34 @@ def budget_app
                 puts "#{period[:freq]} "
             end
             usr_freq_input = gets.chomp.capitalize
+
+            #make a case for each entry, if it is comparable enter the corresponding days to hash
+            # case usr_freq_input
+            # when usr_freq_input == "Week"
+            #      user_input_data[:user_income_freq] = 7
+            # when usr_freq_input == "Fortnight"
+            #     user_input_data[:user_income_freq] = 14
+            # when usr_freq_input == "Month"
+            #     user_input_data[:user_income_freq] = 30
+            # when user_input_data == "Year"
+            #     user_input_data[:user_income_freq] = 365
+            # else
+            #     puts " (⁽ؔ˙⁾ ⊝ ⁽ؔ˙⁾) Invalid selection, please try again  ლ(⁰ ⊖ ⁰ლ)"
+            # end
+                
+
+
+
+
+
+            
+                
+            #if user enters week, send 7 
+            #if user enters fortnight send 14 etc
+
            
            # store user data in hash (want user to continue using program - save so inputs are not lost on exit) 
            user_input_data[:user_income] = usr_income_input
-           user_input_data[:user_income_freq] = usr_freq_input
            puts user_input_data
            
            # verify if usr_freq_input matches a listed value
@@ -103,6 +132,27 @@ def budget_app
                 puts "#{expense[:exp]}"
             end
             #get user to make selection 
+            user_expense_cat = {}
+            item = gets.chomp.capitalize
+            #send to an array, push this into user input data 
+            user_expense_cat[:expense] = item
+
+            puts "To update please enter an amount"
+            amount = gets.chomp.to_f
+            user_expense_cat[:n] = amount
+            
+            puts "Please enter the frequency of your payment obligation"
+            time_periods.each do |period|
+                puts "#{period[:freq]} "
+            end
+
+            freq = gets.chomp.to_i
+            user_expense_cat[:frequency] = freq
+
+
+            
+               
+            
             # user to update section with name, amount and frequency
             # send user input to hash for saving
 
@@ -137,10 +187,14 @@ def budget_app
 
             puts "What is your current savings amount"
             #user enters amount
+            usr_savings = gets.chomp.to_f
+            # user_input_data[:user_savings] = usr_savings
             puts "Please enter the date ddmmyy"
-            #user enters the date?
+            usr_savings_data = gets.chomp.to_i
+            #user_input_data[:user_savings, :date] = usr_savings_data
+            puts user_input_data
             # create user_savings            
-            # ask for what period of time the amount was saved over (optional)
+            
 
             #user should be able to see saving logs( and periods?)
             #user should be able to edit saving amount (add and subtract)
