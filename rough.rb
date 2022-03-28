@@ -34,67 +34,41 @@ usr_opt_select = gets.chomp.to_i
 # query user input, does it match a menu option (can't get this to function how i want, brute force it with case)
 #store user inputs (data to manipulate)
 user_input_data = {}
+expenses =[]
 case usr_opt_select
 when usr_opt_select = 1
     budget_head
     #---------- income ---
     # ask user for gross income
     puts "Let's begin by adding your gross annual salary or amount"
-    usr_income_input = gets.chomp.to_f
+    user_salary = gets.chomp.to_f
     # store user data in hash (want user to continue using program - save so inputs are not lost on exit) 
-    user_input_data[:user_income] = usr_income_input
-    puts user_input_data
+    user_input_data[:user_income] = user_salary
+    
     #-----------end income-------
 
     #------------expenses----
     puts "Next up, let's enter some expenses"
     # Each category is container for list 
-    exp_category =[ 
-                {:exp => "Home"}, 
-                {:exp => "Bills"}, 
-                {:exp => "Food"}, 
-                {:exp => "Transport"}, 
-                {:exp => "Children"}, 
-                {:exp => "Pets"}, 
-                {:exp => "Other"}
-             ]
-             puts "Choose a category to update"
-            exp_category.each do |expense|
-                puts "#{expense[:exp]}"
-            end
-            #get user to make selection 
-            user_expense_cat = {}
-            item = gets.chomp.capitalize
-            #send to an array, push this into user input data 
-            user_expense_cat[:expense] = item
+    puts 'Start by adding a label for your expense'
+    item = gets.chomp.downcase
+    puts 'Enter an amount'
+    cost = gets.chomp.to_f
+    puts "How frequent are the payments? Please enter a number of days"
+    frequency = gets.chomp.to_i
+    expenses << {:item => item, :cost => cost, :days => frequency}
+    puts "Would you like to add another entry to expenses?"
+    puts "(y/n) y = add entry, n = proceed to Savings"
+    answer = gets.chomp.downcase 
+    # if y then loop continues
+    #if n loop stops and program continues
+    #--------end loop
 
-            puts "To update please enter an amount"
-            amount = gets.chomp.to_f
-            user_expense_cat[:n] = amount
-            
-            puts "Please enter the frequency of your payment obligation"
-            time_periods.each do |period|
-                puts "#{period[:freq]} "
-            end
+   #expenses.each do |bill|
+   #    puts "In the last #{bill[:days]} days you spent #{bill[:cost]} on #{bill[:item]}!!"
+   #end
 
-            freq = gets.chomp.to_i
-            user_expense_cat[:frequency] = freq
-
-
-            
-               
-            
-            # user to update section with name, amount and frequency
-            # send user input to hash for saving
-
-
-
-            
-
-               
-            
-            
-            #------------Summary----- (make summary a separate tool?)
+#------------Summary----- (make summary a separate tool?)
             # user can chose budget period (week, fortnight, month, year)
             # list expenses  totalled for each sect (home, bills, etc)
             #disp income
