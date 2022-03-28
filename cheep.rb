@@ -258,7 +258,7 @@ def cheep
 
     #enter all the fluff later just get it pumpin!
     # might be easier to break off some of the fluff into chunks
-    # refactor some processes after getting them working (block it up bruh)
+    # refactor some processes after getting them working & block it up bruh
 puts "welcome"
 puts "how to continue?"
 # put up list of options 
@@ -267,27 +267,34 @@ options.each_with_index { |item, index| puts "#{index + 1}. #{item}" }
 puts "enter a num to make a selection"
 user_option = gets.chomp.to_i
 user_input_data = {}
-case user_option
+    case user_option
 when  1
     
     system "clear"
     puts "budget"
     puts "get started, enter your annual salary"
     user_salary = gets.chomp.to_f
-    puts 'great lets update expenses'
-    # make this loop----------
-    puts 'type a label for your expense ie: rent or telephone bill'
-    item = gets.chomp.downcase
-    puts 'how much u pay'
-    cost = gets.chomp.to_f
-    puts "how often in days"
-    frequency = gets.chomp.to_i
+    puts 'great lets update expenses' 
     expenses = []
-    expenses << {:item => item, :cost => cost, :days => frequency}
-    #--------end loop
-    expenses.each do |bill|
-         puts "In the last #{bill[:days]} days you spent #{bill[:cost]} on #{bill[:item]}!!"
+    # make this loop----------
+  
+  
+        puts 'type a label for your expense ie: rent or telephone bill'
+        item = gets.chomp.downcase
+        puts 'how much u pay'
+        cost = gets.chomp.to_f
+        puts "how often in days"
+        frequency = gets.chomp.to_i
+        expenses << {:item => item, :cost => cost, :days => frequency}
+        puts "enter more or next?"
+        answer = gets.chomp.downcase         
+        #--------end loop  
+        expenses.each do |bill|
+            puts "In the last #{bill[:days]} days you spent #{bill[:cost]} on #{bill[:item]}!!"
+        end
+    
     end
+
     
 when 2
     system "clear"
@@ -302,7 +309,7 @@ puts savings
 
 
 else
-    puts "you're an invalid"
+    puts "invalid"
 end
     
 end
