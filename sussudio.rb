@@ -32,4 +32,35 @@
 #savings increase percent since last use?
 # savings to goals comparison 
 #goals to disposable
+#----------------
 
+#---------help scrn
+
+
+time_periods = [
+            {:freq => "Week", :days => 7},
+            {:freq => "Fortnight", :days => 14},
+            {:freq => "Month", :days => 30},
+            {:freq => "Year", :days => 365}
+        ] 
+        
+        time_periods.each do |period| 
+            puts "#{period[:freq]} "
+        end
+        usr_freq_input = gets.chomp.capitalize
+
+
+
+#make a case for each entry, if it is comparable enter the corresponding day
+# case usr_freq_input
+# when usr_freq_input == "Week"
+#      user_input_data[:user_income_freq] = 7
+# when usr_freq_input == "Fortnight"
+#     user_input_data[:user_income_freq] = 14
+# when usr_freq_input == "Month"
+#     user_input_data[:user_income_freq] = 30
+# when user_input_data == "Year"
+#     user_input_data[:user_income_freq] = 365
+# else
+#     puts " (⁽ؔ˙⁾ ⊝ ⁽ؔ˙⁾) Invalid selection, please try again  ლ(⁰ ⊖ ⁰ლ)"
+# end

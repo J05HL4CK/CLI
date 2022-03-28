@@ -262,7 +262,7 @@ def cheep
 puts "welcome"
 puts "how to continue?"
 # put up list of options 
-options = ['Budget', 'Savings', 'Goals', 'Compare']
+options = %W[Budget Savings Compare Goals]
 options.each_with_index { |item, index| puts "#{index + 1}. #{item}" }
 puts "enter a num to make a selection"
 user_option = gets.chomp.to_i
@@ -293,7 +293,7 @@ when  1
             puts "In the last #{bill[:days]} days you spent #{bill[:cost]} on #{bill[:item]}!!"
         end
     
-    end
+    
 
     
 when 2
