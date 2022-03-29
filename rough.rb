@@ -19,6 +19,7 @@ def budget_head
     puts "---------------------------------------------------------------"
 end
 def expense_loop
+    expenses = []
     puts 'Start by adding a label for your expense'
     item = gets.chomp.downcase
     puts 'Enter an amount'
@@ -26,9 +27,7 @@ def expense_loop
     puts "How frequent are the payments? Please enter a number of days"
     frequency = gets.chomp.to_i
     expenses << {:item => item, :cost => cost, :days => frequency}
-    puts "Would you like to add another entry to expenses?"
-    puts "(y/n) y = add entry, n = proceed to Savings"
-    answer = gets.chomp.downcase
+    
         
     
 end
@@ -61,9 +60,47 @@ def budget_app
         
         #------------expenses----
         expenses = []
-        puts "Next up, let's enter some expenses"
-        expense_loop
-             
+        continue = true
+        while continue == true
+            puts "Start by adding a label for your expense"
+            item = gets.chomp.downcase
+            puts 'Enter an amount'
+            cost = gets.chomp.to_f
+            puts "How frequent are the payments? Please enter a number of days"
+            frequency = gets.chomp.to_i
+            expenses << {:item => item, :cost => cost, :days => frequency}
+            puts "Would you like to add another entry to expenses?"
+            puts "(y/n) y = add entry, n = proceed to Savings"
+            answer = gets.chomp.downcase
+        if answer == "n"
+            continue = false
+            system "clear"
+            usr_opt_select = 2
+        else continue = true
+        end
+    end    
+    
+    
+    #puts "Next up, let's enter some expenses"
+    #
+    #until answer != "y"
+    #    expenses = []
+    #    puts 'Start by adding a label for your expense'
+    #    item = gets.chomp.downcase
+    #    puts 'Enter an amount'
+    #    cost = gets.chomp.to_f
+    #    puts "How frequent are the payments? Please enter a number of days"
+    #    frequency = gets.chomp.to_i
+    #    puts "Would you like to add another entry to expenses?"
+    #    puts "(y/n) y = add entry, n = proceed to Savings"
+    #    answer = gets.chomp.downcase
+    #    expenses << {:item => item, :cost => cost, :days => frequency}
+    #end 
+
+
+
+
+
         #puts 'Start by adding a label for your expense'
         #item = gets.chomp.downcase
         #puts 'Enter an amount'

@@ -147,7 +147,6 @@ time_periods = [
 end
 
 continue = true
-def expense_loop
     while continue == true
         puts 'Start by adding a label for your expense'
         item = gets.chomp.downcase
@@ -163,4 +162,10 @@ def expense_loop
         continue = false
         system clear
     end
+end
+def in_out
+     puts variable
+     variable.gets 
+    # store user inputs  
+
 end
