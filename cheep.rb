@@ -267,8 +267,8 @@ options.each_with_index { |item, index| puts "#{index + 1}. #{item}" }
 puts "enter a num to make a selection"
 user_option = gets.chomp.to_i
 user_input_data = {}
-    case user_option
-when  1
+#case user_option
+# 1
     
     system "clear"
     puts "budget"
