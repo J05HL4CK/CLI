@@ -31,6 +31,20 @@ def expense_loop
         
     
 end
+def savings_head
+    system "clear"
+    puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
+    puts  "*                       SAVINGS TOOL                          *"
+    puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
+    # short description of functions and how to use?
+    puts "(　＾ Θ ＾) Use the savings tool to track your savings (＾ Θ ＾  ) "
+end
+def goals_head
+    system "clear"
+    puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
+    puts  "*                      GOALS TOOL                             *"
+    puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
+end
 
 def budget_app
     main_welcome_head
@@ -47,7 +61,7 @@ def budget_app
     #store user inputs (data to manipulate)
     user_input_data = {}
     case usr_opt_select
-    when usr_opt_select = 1
+    when 1
         budget_head
         #---------- income ---
         # ask user for gross income
@@ -73,49 +87,29 @@ def budget_app
             puts "(y/n) y = add entry, n = proceed to Savings"
             answer = gets.chomp.downcase
         if answer == "n"
-            continue = false
-            system "clear"
-            usr_opt_select = 2
+                continue = false
+                system "clear"
+                usr_opt_select == 2
+           
         else continue = true
         end
     end    
+    when 2   
+        savings_head
+
+
+   
+    when 3
+        goals_head
     
+    when 4
+        puts 'germs, heaps of germs where there should be text ewwwwwww'
     
-    #puts "Next up, let's enter some expenses"
-    #
-    #until answer != "y"
-    #    expenses = []
-    #    puts 'Start by adding a label for your expense'
-    #    item = gets.chomp.downcase
-    #    puts 'Enter an amount'
-    #    cost = gets.chomp.to_f
-    #    puts "How frequent are the payments? Please enter a number of days"
-    #    frequency = gets.chomp.to_i
-    #    puts "Would you like to add another entry to expenses?"
-    #    puts "(y/n) y = add entry, n = proceed to Savings"
-    #    answer = gets.chomp.downcase
-    #    expenses << {:item => item, :cost => cost, :days => frequency}
-    #end 
-
-
-
-
-
-        #puts 'Start by adding a label for your expense'
-        #item = gets.chomp.downcase
-        #puts 'Enter an amount'
-        #cost = gets.chomp.to_f
-        #puts "How frequent are the payments? Please enter a number of days"
-        #frequency = gets.chomp.to_i
-        #expenses << {:item => item, :cost => cost, :days => frequency}
-        #puts "Would you like to add another entry to expenses?"
-        #puts "(y/n) y = add entry, n = proceed to Savings"
-        #answer = gets.chomp.downcase
-         
-        
+    else 
+        system "clear"
+        puts " (⁽ؔ˙⁾ ⊝ ⁽ؔ˙⁾) Invalid selection, please try again  ლ(⁰ ⊖ ⁰ლ)"
     end
-    
 end
 budget_app
 
-    
+     
