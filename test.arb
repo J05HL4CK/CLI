@@ -1,0 +1,11 @@
+# test blocks of code here DO NOT CLUTTER THIS PAGE!
+#====================================================
+#def string_collect(string, user_input)
+#    puts string
+#    user_input = gets.chomp
+#    
+#end
+#data_to_store = {}
+#string_collect("gimme some data", 'x_input')
+#data_to_store << x_input
+#puts data_to_store

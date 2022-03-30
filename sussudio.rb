@@ -163,9 +163,14 @@ continue = true
         system clear
     end
 end
-def in_out
-     puts variable
-     variable.gets 
-    # store user inputs  
+#def yeahman_out
+#     puts variable
+#     variable.gets 
+#    # store user inputs  
+#
+#end
 
+def string_collect(string, collection)
+puts string
+collection = gets.chomp
 end
