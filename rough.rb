@@ -45,6 +45,10 @@ def goals_head
     puts  "*                      GOALS TOOL                             *"
     puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
 end
+def invalid_warning
+    system "clear"
+    puts " (⁽ؔ˙⁾ ⊝ ⁽ؔ˙⁾) Invalid selection, please try again  ლ(⁰ ⊖ ⁰ლ)"
+end
 
 def budget_app
     main_welcome_head
@@ -106,8 +110,8 @@ def budget_app
         puts 'germs, heaps of germs where there should be text ewwwwwww'
     
     else 
-        system "clear"
-        puts " (⁽ؔ˙⁾ ⊝ ⁽ؔ˙⁾) Invalid selection, please try again  ლ(⁰ ⊖ ⁰ლ)"
+    invalid_warning
+       
     end
 end
 budget_app

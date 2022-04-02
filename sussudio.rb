@@ -170,7 +170,19 @@ end
 #
 #end
 
-def string_collect(string, collection)
-puts string
-collection = gets.chomp
-end
+#def string_collect(string, collection)
+#puts string
+#return gets.chomp
+#end
+#string_collect("some stringlet", input)
+#x = string_collect
+#puts x
+
+
+
+
+
+
+
+
+
