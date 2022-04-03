@@ -23,11 +23,10 @@ end
 #  print "#{}"
 #  $stdin.gets.chomp
 # end
-def quest_get(question, input) 
-  print "#{question}"
-  input = $stdin.gets.chomp
-  return input 
-
+def quest_get(question,user_input) 
+  print "#{question} > "
+  user_input = $stdin.gets.chomp
+  return user_input  
 end
 
 
@@ -48,18 +47,32 @@ end
 def cheep_budget_app()
   choose = "Please select one of the following options: "
   prompt_user = "Enter your selection > "
-   
+  # save user data in this txt file, remember to close it! target.write(thing)
   
   main_welcome_head
   puts "#{choose}"
   menu_main
   print "#{prompt_user}"
   menu_choice = $stdin.gets.chomp.to_i
+ 
   
   case menu_choice
   when 1
     system "clear"
-    budget_data = {}
+    budget_data = [
+      {user_salary: "annual"},
+      {user_realised: "savings"}
+
+    ]
+    budget_head
+    # start to collect user info for storage
+    # user annual salary 
+    salary_enter =  "To start, enter your annual salary"
+    quest_get(salary_enter,)
+    
+    
+    
+
 
   when 2
     puts "this is ok too"
@@ -74,10 +87,21 @@ def cheep_budget_app()
 end
 
 
-#cheep_budget_app
-question = "lets get at it! > "
-user_data = ""
-quest_get(question,user_data)
-puts user_data
+cheep_budget_app
 
 
+
+def expense_collect()
+  puts "Edit some expenses here."
+  expenses = [
+    {:item => "Home"},
+    {:item => "Bills"},
+    {:item => "Food"},
+    {:item => "Transport"},
+    {:item => "Children"},
+    {:item => "Pets"},
+    {:item => "Other"}    
+  ]
+  expenses.each_with_index { |item, index| puts "#{index + 1}. #{item[:item]}" }
+
+end
