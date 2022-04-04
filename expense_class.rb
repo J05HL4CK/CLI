@@ -1,16 +1,20 @@
 #------ attributes I want to track------
 # 
-# name: discrete category and labels
+# category name
+# expense label
 # cost
 # frequency
+# amnt entries
+# 
 
-class Expense_cat
+class ExpenseCat
     attr_accessor :name, :user_expenses
     # init name for categ
+    @@n_cats = 0
     def initialize(name)
         @name = name
         @user_expenses = []
-        
+        @@n_cats += 1
     end
     def add(label, amount, period_days)
         @user_expenses << {item: label, cost: amount, days: period_days}
@@ -21,13 +25,16 @@ class Expense_cat
     def delete_discrete
         @user_expenses.delete_at[]
     end
+    def self.total_n_cats
+        @@n_cats
+    end
     def calc
         # maths goes here
 
     end
     def display
         
-        puts "#{@name.capitalize} Expense_cat: #{@user_expenses.length}"
+        puts "#{@name.capitalize} ExpenseCat: #{@user_expenses.length}"
         @user_expenses.each { | bill | puts "\n\t #{bill[:item]} $#{bill[:cost]} every #{bill[:days]} days."}
         puts "\n\nTotal cost of #{@name} expenses $#{@user_expenses.sum {|h|h[:cost]}} "    
 
@@ -37,16 +44,16 @@ class Expense_cat
     end
 end
 
-home = Expense_cat.new("Home")
-home.add("Electricity", 60, 14)
-home.add("Rent", 100, 7)
-#home.display
-food = Expense_cat.new("Food")
-food.add("cheezels", 20, 7)
-#food.display
-#puts "#{home}\n#{food}"
-#puts home.user_expenses
-home.to_s
-#\n#{@user_expenses.each {|h|h[:item]}}
-home.delete_last_entry
-puts home
+# home = ExpenseCat.new("Home")
+# home.add("Electricity", 60, 14)
+# home.add("Rent", 100, 7)
+# home.display
+# food = ExpenseCat.new("Food")
+# food.add("cheezels", 20, 7)
+# food.display
+# puts "#{home}\n#{food}"
+# puts home.user_expenses
+# home.to_s
+# \n#{@user_expenses.each {|h|h[:item]}}
+# 
+# puts "Number of Categories: #{ExpenseCat.total_n_cats}"

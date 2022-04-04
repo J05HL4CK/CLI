@@ -1,3 +1,6 @@
+require 'colorize'
+require 'time'
+require_relative(./expense_class)
 def main_welcome_head
   user_name = ARGV.first
   puts "---------------------------------------------------------------"
