@@ -36,9 +36,4 @@
 
 #---------help scrn
 
-#------ attributes I want to track------
-# 
-# name
-# cost
-# frequency
 
