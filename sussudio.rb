@@ -57,14 +57,22 @@ class Expenses
     def delete_discrete
         @user_expenses.delete_at[]
     end
+    def calc
+
+    end
     def display
-        puts "You have #{@user_expenses.length} outgoings in total"
-        @user_expenses.each { | bill | puts " #{bill[:item]} $#{bill[:cost]} every #{bill[:days]} days."}
-            
+        
+        puts "#{@name.capitalize} Expenses: #{@user_expenses.length}"
+        @user_expenses.each { | bill | puts "\n\t #{bill[:item]} $#{bill[:cost]} every #{bill[:days]} days."}
+        puts "Total cost of #{@name} expenses $#{@user_expenses.sum {|h|h[:cost]}}  "    
 
     end
 end
 
 debit = Expenses.new("Home")
-debit.add("electricity", 60, 14)
+debit.add("Electricity", 60, 14)
+debit.add("Rent", 100, 7)
+debit.display
+debit = Expenses.new("Food")
+debit.add("cheezels", 20, 7)
 debit.display
