@@ -44,16 +44,16 @@ class Expenses
     end
 end
 
-# home = Expenses.new("Home")
-# home.add("Electricity", 60, 14)
-# home.add("Rent", 100, 7)
-# home.display
-# food = Expenses.new("Food")
-# food.add("cheezels", 20, 7)
-# food.display
-# puts "#{home}\n#{food}"
-# puts home.user_expenses
-# home.to_s
-# \n#{@user_expenses.each {|h|h[:item]}}
-# 
-# puts "Number of Categories: #{Expenses.total_n_cats}"
+ #home = Expenses.new("Home")
+ #home.add("Electricity", 60, 14)
+ #home.add("Rent", 100, 7)
+ #home.display
+ #food = Expenses.new("Food")
+ #food.add("cheezels", 20, 7)
+ #food.display
+ #puts "#{home}\n#{food}"
+ #puts home.user_expenses
+ #home.to_s
+ # \n#{@user_expenses.each {|h|h[:item]}}
+ 
+ #puts "Number of Categories: #{Expenses.total_n_cats}"
