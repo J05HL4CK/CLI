@@ -25,6 +25,22 @@ module Headings
         puts " ϵ( ‘ ◇ ’ )϶ Use the budget tool to track your expenses ϵ( ‘ ◇ ’ )϶ "
         puts "---------------------------------------------------------------"
     end
-    def Headings.poo
+    def Headings.savings
+        system "clear"
+        puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
+        puts  "*                       SAVINGS TOOL                          *"
+        puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
+        # short description of functions and how to use?
+        puts "(　＾ Θ ＾) Use the savings tool to track your savings (＾ Θ ＾  ) "
+    end
+    def Headings.goals
+        system "clear"
+        puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
+        puts  "*                      GOALS TOOL                             *"
+        puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
+    end
+    def Headings.invalid_warning
+        system "clear"
+        puts " (⁽ؔ˙⁾ ⊝ ⁽ؔ˙⁾) Invalid selection, please try again  ლ(⁰ ⊖ ⁰ლ)"
     end
 end

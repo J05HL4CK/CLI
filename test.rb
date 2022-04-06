@@ -1,29 +1,8 @@
 require 'colorize'
-require 'time'
-require_relative(./expense_class)
-def main_welcome_head
-  user_name = ARGV.first
-  puts "---------------------------------------------------------------"
-  puts %Q{Welcome to CHEEP, the little budget app for your command line}
-  puts "---------------------------------------------------------------"
-  puts "|       ᕙ(`▿´)ᕗ cheep!               ᕙ(`▿´)ᕗ cheep!           |"
-  puts "==========##===========================##======================"
-  puts ""
-  puts "                Let's get started #{user_name}!                "
-  puts ""
-  puts "---------------------------------------------------------------"
-  end
-def budget_head
-  system "clear"
-  puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
-  puts  "*                       BUDGET TOOL                           *"
-  puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
-  
-  puts " ϵ( ‘ ◇ ’ )϶ Use the budget tool to track your expenses ϵ( ‘ ◇ ’ )϶ "
-  puts "---------------------------------------------------------------"
-end
-# def continue_prompt()
-#  print "#{}"
+
+
+
+
 #  $stdin.gets.chomp
 # end
 def quest_get(question,user_input) 
