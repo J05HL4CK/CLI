@@ -7,7 +7,7 @@
 # amnt entries
 # 
 
-class ExpenseCat
+class UserData
     attr_accessor :name, :user_expenses
     # init name for categ
     @@n_cats = 0
@@ -34,7 +34,7 @@ class ExpenseCat
     end
     def display
         
-        puts "#{@name.capitalize} ExpenseCat: #{@user_expenses.length}"
+        puts "#{@name.capitalize} UserData: #{@user_expenses.length}"
         @user_expenses.each { | bill | puts "\n\t #{bill[:item]} $#{bill[:cost]} every #{bill[:days]} days."}
         puts "\n\nTotal cost of #{@name} expenses $#{@user_expenses.sum {|h|h[:cost]}} "    
 
@@ -44,11 +44,11 @@ class ExpenseCat
     end
 end
 
-# home = ExpenseCat.new("Home")
+# home = UserData.new("Home")
 # home.add("Electricity", 60, 14)
 # home.add("Rent", 100, 7)
 # home.display
-# food = ExpenseCat.new("Food")
+# food = UserData.new("Food")
 # food.add("cheezels", 20, 7)
 # food.display
 # puts "#{home}\n#{food}"
@@ -56,4 +56,4 @@ end
 # home.to_s
 # \n#{@user_expenses.each {|h|h[:item]}}
 # 
-# puts "Number of Categories: #{ExpenseCat.total_n_cats}"
+# puts "Number of Categories: #{UserData.total_n_cats}"
