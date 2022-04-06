@@ -4,10 +4,11 @@ class PromptGets
         @name = name
         #user response to prompt
         @response = response
-        @inputs = [] 
-
-
-        
+        @inputs = []         
     end
+    def select_option
+        puts "Please select one of the following options: "
+    end
+    def 
 
 end
