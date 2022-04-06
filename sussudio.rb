@@ -65,6 +65,11 @@ class UserData
 end
 salary = UserData.new("salary")
 salary.add("income", "salary", 20000, 365)
-salary.add("expense", "Home", 100, 7)
-salary.delete_last
-puts salary
+salary.add("income", "bonus", 100, 7)
+
+
+
+home = UserData.new("Expense")
+home.add("Home", "mortgage", 500, 7)
+home.add("Home", "pets", 100, 7)
+puts "#{salary}\n#{home}"
