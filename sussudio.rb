@@ -59,7 +59,8 @@ class UserData
         puts "\n\n#{@data_category.capitalize} Input Total: $#{@inputs.sum {|h|h[:n]}} "    
     end
     def to_s
-        
+        return "Data category: #{@data_category.capitalize},\tEntries: #{@inputs.length}"
+
     end
 end
 salary = UserData.new("salary")
