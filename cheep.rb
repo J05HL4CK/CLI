@@ -7,7 +7,7 @@ class UserData
     attr_accessor :data_category, :inputs
     # initialise number of entries 
     @@n_entries = 0
-# specify the data budget/ savings/ goals etc with data_cat
+    # specify the data budget/ savings/ goals etc with data_cat
     def initialize(data_category)
        @data_category = data_category
        # storage array for user inputs
@@ -40,20 +40,25 @@ class UserData
 end
 #-----Cheep Budget app Start-----
 def cheep
+    # init menu
     prompt = TTY::Prompt.new
+    # init user name 
     name = TTY::Prompt.new
+    # init storage container for all user details till push to file
+    data_stoage_container = []
     # display welcome message to user - first point of contact for user
     Headings.welcome
     # prompt for user name and assign to user_name variable
     user_name = name.ask("Start by adding a user name", default: ENV["USER"])
     # prompt user to select an option to continue
     menu = prompt.select("To continue, please choose one of the following options: ", %w(Budget Savings Goals Help))
-    # if the menu choice is comparable, do that thing
+    # make case: if the menu choice is comparable, do that thing
     case menu
     #-----start Budget----- 
     when "Budget"
         # budget heading 
         Headings.budget
+
 
 
     #-----end Budget
