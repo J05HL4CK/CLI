@@ -7,7 +7,7 @@ class UserData
     attr_accessor :data_category, :inputs
     # initialise number of entries 
     @@n_entries = 0
-# specify the data buget/ savings/ goals etc with data_cat
+# specify the data budget/ savings/ goals etc with data_cat
     def initialize(data_category)
        @data_category = data_category
        # storage array for user inputs
@@ -62,7 +62,7 @@ def cheep
     when "Goals"
         puts "yep"
     when "Help"
-        puts "helllllpppp"
+        puts "Please contact a therapist immediately to increase your meds"
     else
         puts "nah"
 
