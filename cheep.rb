@@ -69,22 +69,26 @@ def cheep
         user_salary = salary.ask("Great stuff #{user_name}!, now enter your annual salary: ")
         data_storage_container << user_salary
         puts "Let's enter some expenses"
-        
-        user_expenses = expenses.collect do 
-            key(:category).ask("Name your expense category ")
+
+        user_expenses = []        
+        entries = expenses.collect do 
+            
+            puts "Add a category label: "
+           
             loop do
                 key(:expense) do
                 key(:item).ask("Enter an item ")
                 key(:amount).ask("Enter a payment amount $")
                 key(:frequency).ask("Enter payment frequency in days")
+                
                 end
                 #  would u like to add another expense to this category? t/f
                 user_continue = continue.yes?("add another expense?")
-                break if user_continue == false    
-                data_storage_container.push(user_expenses)
+                break if user_continue == false
             end
+            
         end        
-        puts data_storage_container
+         puts "Category: #{entries[:category]}\n Expense: #{entries[:expense]}"
 
     #-----end Budget
     when "Savings"

@@ -44,8 +44,13 @@ class Expenses
     end
 end
 
- #home = Expenses.new("Home")
- #home.add("Electricity", 60, 14)
+ 
+ home = Expenses.new("Home")
+
+
+
+ home.add("Electricity")
+ home["Electricity"].add(30)
  #home.add("Rent", 100, 7)
  #home.display
  #food = Expenses.new("Food")
