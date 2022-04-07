@@ -46,10 +46,15 @@ def cheep
     name = TTY::Prompt.new
     # init storage container for all user details till push to file
     data_stoage_container = []
+    # init salary variable
+    salary = TTY::Prompt.new
+    expenses = TTY::Prompt.new
     # display welcome message to user - first point of contact for user
     Headings.welcome
     # prompt for user name and assign to user_name variable
-    user_name = name.ask("Start by adding a user name", default: ENV["USER"])
+    user_name = name.ask("Begin by entering a user name", default: ENV["USER"])
+    data_stoage_container << user_name 
+    
     # prompt user to select an option to continue
     menu = prompt.select("To continue, please choose one of the following options: ", %w(Budget Savings Goals Help))
     # make case: if the menu choice is comparable, do that thing
@@ -58,8 +63,17 @@ def cheep
     when "Budget"
         # budget heading 
         Headings.budget
-
-
+        user_salary = salary.ask("Great stuff #{user_name}!, now enter your annual salary: ")
+        data_stoage_container << user_salary
+        puts "Let's enter some expenses"
+        user_expenses = expenses.collect do 
+            key(:category).ask("Name your expense category ")
+            key(:label) do
+              key(:item).ask("Enter an item ")
+              key(:amount).ask("Enter a payment amount $")
+              key(:frequency).ask("Enter payment frequency in days")
+            end
+          end        
 
     #-----end Budget
     when "Savings"
