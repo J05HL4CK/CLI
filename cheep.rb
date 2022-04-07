@@ -45,15 +45,18 @@ def cheep
     # init user name 
     name = TTY::Prompt.new
     # init storage container for all user details till push to file
-    data_stoage_container = []
+    data_storage_container = []
     # init salary variable
     salary = TTY::Prompt.new
+    # init expenses 
     expenses = TTY::Prompt.new
+    continue = TTY::Prompt.new
     # display welcome message to user - first point of contact for user
     Headings.welcome
     # prompt for user name and assign to user_name variable
     user_name = name.ask("Begin by entering a user name", default: ENV["USER"])
-    data_stoage_container << user_name 
+    # push user_name to data storage container
+    data_storage_container << user_name 
     
     # prompt user to select an option to continue
     menu = prompt.select("To continue, please choose one of the following options: ", %w(Budget Savings Goals Help))
@@ -64,16 +67,24 @@ def cheep
         # budget heading 
         Headings.budget
         user_salary = salary.ask("Great stuff #{user_name}!, now enter your annual salary: ")
-        data_stoage_container << user_salary
+        data_storage_container << user_salary
         puts "Let's enter some expenses"
+        user_continue = true
         user_expenses = expenses.collect do 
             key(:category).ask("Name your expense category ")
-            key(:label) do
-              key(:item).ask("Enter an item ")
-              key(:amount).ask("Enter a payment amount $")
-              key(:frequency).ask("Enter payment frequency in days")
+            while user_continue == true do
+                key(:label) do
+                key(:item).ask("Enter an item ")
+                key(:amount).ask("Enter a payment amount $")
+                key(:frequency).ask("Enter payment frequency in days")
+                end
+                #  would u like to add another expense to this category? t/f
+                user_continue = continue.yes?("add another expense?")
+                
             end
-          end        
+        end        
+        data_storage_container << user_expenses
+        puts data_storage_container
 
     #-----end Budget
     when "Savings"
