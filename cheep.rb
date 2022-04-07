@@ -8,13 +8,20 @@ def cheep
     Headings.welcome
 
     # prompt user to select an option to continue
-    prompt.select("To continue, please choose one of the following options: ", %w(Budget Savings Goals Help))
-    # if the menu choise is comparable to 1,2 ,3  do that thing
-    case menu.choice
-    when 1
-    when 2
-    when 3
+    menu = prompt.select("To continue, please choose one of the following options: ", %w(Budget Savings Goals Help))
+    # if the menu choice is comparable, do that thing
+    case menu
+    when "Budget"
+        puts "yes"
+    when "Savings"
+        puts "yes"
+    when "Goals"
+        puts "yep"
+    when "Help"
+        puts "helllllpppp"
     else
+        puts "nah"
+
     end
 
 
