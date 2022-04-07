@@ -64,7 +64,7 @@ def cheep
     when "Help"
         puts "Please contact a therapist immediately to increase your meds"
     else
-        puts "nah"
+        puts "invalid salecta rastamun"
 
     end
 
