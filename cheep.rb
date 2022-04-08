@@ -80,11 +80,12 @@ def cheep
               key(:item).values do
                 key(:name).ask("Enter a name for the expense: ", required: true)
                 key(:cost).ask("Enter the cost of payments $", convert: :float)
-                key(:freq).ask("Enter the period between payments: ", default: 7)
+                key(:freq).ask("Enter the period between payments in days: ", default: 7)
               end
             end
         end
-        puts results
+        puts "Category: #{results[:category]} \n#{results[:item]}\n"
+        results[:item].each {|entry|puts "#{entry[:cost]}"}
 
 
     
