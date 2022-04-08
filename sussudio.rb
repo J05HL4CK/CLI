@@ -63,13 +63,33 @@ class UserData
 
     end
 end
-salary = UserData.new("salary")
-salary.add("income", "salary", 20000, 365)
-salary.add("income", "bonus", 100, 7)
+# salary = UserData.new("salary")
+# salary.add("income", "salary", 20000, 365)
+# salary.add("income", "bonus", 100, 7)
 
 
 
-home = UserData.new("Expense")
-home.add("Home", "mortgage", 500, 7)
-home.add("Home", "pets", 100, 7)
-puts "#{salary}\n#{home}"
+# home = UserData.new("Expense")
+# home.add("Home", "mortgage", 500, 7)
+# home.add("Home", "pets", 100, 7)
+# puts "#{salary}\n#{home}"
+require "tty-prompt"
+expenses = TTY::Prompt.new
+continue = TTY::Prompt.new
+user_continue = true
+while user_continue == true do
+    
+
+    user_x = expenses.collect do
+        key(:name).ask('Category: ') 
+        key(:expense) do
+            key(:item).ask('Item name: ')
+            key(:amount).ask('Amount: ')
+            key(:frequency).ask('Payment frequency in days: ')
+break if user_continue == false
+user_continue = continue.yes?("add another expense?")
+      
+        end
+   
+    end
+end
