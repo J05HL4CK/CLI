@@ -74,23 +74,39 @@ end
 # home.add("Home", "pets", 100, 7)
 # puts "#{salary}\n#{home}"
 require "tty-prompt"
-expenses = TTY::Prompt.new
-continue = TTY::Prompt.new
-user_continue = true
-while user_continue == true do
-    
-
-    user_x = expenses.collect do
-        key(:name).ask('Category: ') 
-        key(:expense) do
-            key(:item).ask('Item name: ')
-            key(:amount).ask('Amount: ')
-            key(:frequency).ask('Payment frequency in days: ')
-
-            user_continue = continue.yes?("add another expense?")
-break if user_continue == false
-      
-        end
- 
+# expenses = TTY::Prompt.new
+# continue = TTY::Prompt.new
+# user_continue = true
+# while user_continue == true do
+    # 
+# 
+    # user_x = expenses.collect do
+        # key(:name).ask('Category: ') 
+        # key(:expense) do
+            # key(:item).ask('Item name: ')
+            # key(:amount).ask('Amount: ')
+            # key(:frequency).ask('Payment frequency in days: ')
+# 
+            # user_continue = continue.yes?("add another expense?")
+# break if user_continue == false
+    #   
+        # end
+#  
+    # end
+# end
+prompt = TTY::Prompt.new
+result = TTY::Prompt.new
+result = prompt.collect do
+    key(:name).ask("Name?")
+  
+    key(:age).ask("Age?", convert: :int)
+  
+    while prompt.yes?("continue?")
+      key(:addresses).values do
+        key(:street).ask("Street?", required: true)
+        key(:city).ask("City?")
+        key(:zip).ask("Zip?", validate: /\A\d{3}\Z/)
+      end
     end
-end
+  end
+  puts result

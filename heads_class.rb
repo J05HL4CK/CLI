@@ -32,6 +32,7 @@ module Headings
         puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
         # short description of functions and how to use?
         puts "(　＾ Θ ＾) Use the savings tool to track your savings (＾ Θ ＾  ) "
+        puts "---------------------------------------------------------------"
     end
     def Headings.goals
         system "clear"

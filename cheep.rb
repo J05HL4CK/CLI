@@ -18,9 +18,6 @@ class UserData
     end
     # user to add category(home, transport etc) item(rent, pets etc) how often in days
     def add(category, item, amount, frequency)
-        category = $stdin.gets.chomp
-        item = $stdin.gets.chomp
-        frequency = $stdin.gets.chomp.to_i
         # push all into the storage array @inputs
         @inputs << {label: category, n: amount, days: frequency}
 
@@ -44,7 +41,7 @@ end
 #-----Cheep Budget app Start-----
 def cheep
     # init menu
-    prompt = TTY::Prompt.new
+    main_menu = TTY::Prompt.new
     # init user name 
     name = TTY::Prompt.new
     # init storage container for all user details till push to file
@@ -54,6 +51,7 @@ def cheep
     # init expenses 
     expense = TTY::Prompt.new
     continue = TTY::Prompt.new
+    prompt = TTY::Prompt.new
     # display welcome message to user - first point of contact for user
     Headings.welcome
     # prompt for user name and assign to user_name variable
@@ -62,7 +60,7 @@ def cheep
     # data_storage_container << user_name 
     
     # prompt user to select an option to continue
-    menu = prompt.select("To continue, please choose one of the following options: ", %w(Budget Savings Goals Help))
+    menu = main_menu.select("To continue, please choose one of the following options: ", %w(Budget Savings Goals Help))
     # make case: if the menu choice is comparable, do that thing
     case menu
     #-----start Budget----- 
@@ -75,7 +73,7 @@ def cheep
        # a named category could hold multiple expenses and be called by the key
        # loop to continue adding expenses to category until uses wants to discontinue
        # add a new category of expenses or continue to savings?
-        expense = prompt.collect do
+        results = expense.collect do
             key(:category).ask("Start tracking your expenses by adding a category name: ", default: "Home" )
                    
             while prompt.yes?("Add items to this category?")
@@ -85,8 +83,8 @@ def cheep
                 key(:freq).ask("Enter the period between payments: ", default: 7)
               end
             end
-            
-          end
+        end
+        puts results
 
 
     
@@ -97,17 +95,21 @@ def cheep
         savings = UserData.new("Savings")
         print "Enter your current savings balance as an amount: $"
         sav_bal = $stdin.gets.chomp.to_f
-        print 'How long did it take to save?'
-        sav_freq = $stdin.gets.chomp.to_f
-# add these params in to make a new data entry 
+        print 'How many days did it take to save? '
+        sav_freq = $stdin.gets.chomp.to_i
+        # add these params in to make a new data entry 
+        savings.add("Realised", "Capital", sav_bal, sav_freq)
+        puts savings
         
 
         
     when "Goals"
         Headings.goals
     when "Help"
-        puts "use a different app, this one sucks"*20
-        system "clear"
+        puts """
+             Sorry, I'm an app. Please see a financial advisor
+             """
+        
     else
         puts "invalid salecta rastamun"
 
