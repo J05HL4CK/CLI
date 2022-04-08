@@ -49,14 +49,14 @@ def cheep
     # init salary variable
     salary = TTY::Prompt.new
     # init expenses 
-    expenses = TTY::Prompt.new
+    expense = TTY::Prompt.new
     continue = TTY::Prompt.new
     # display welcome message to user - first point of contact for user
     Headings.welcome
     # prompt for user name and assign to user_name variable
     user_name = name.ask("Begin by entering a user name", default: ENV["USER"])
     # push user_name to data storage container
-    data_storage_container << user_name 
+    # data_storage_container << user_name 
     
     # prompt user to select an option to continue
     menu = prompt.select("To continue, please choose one of the following options: ", %w(Budget Savings Goals Help))
@@ -66,9 +66,21 @@ def cheep
     when "Budget"
         # budget heading 
         Headings.budget
-        user_salary = salary.ask("Great stuff #{user_name}!, now enter your annual salary: ")
+        user_salary = salary.ask("To start using the budget tool, please enter your annual salary: ", convert: :float)
         data_storage_container << user_salary
-        
+        #  user_expenses = expenses.ask("Let's edit some expenses, enter a category name: ", default: "Home")
+        expense = prompt.collect do
+            key(:category).ask("Start tracking your expenses by adding a category name: ", default: "Home" )
+                   
+            while prompt.yes?("Continue adding items to this category?")
+              key(:item).values do
+                key(:name).ask("Enter a name for the expense: ", required: true)
+                key(:cost).ask("Enter the cost of payments $", convert: :float)
+                key(:freq).ask("Enter the period between payments: ", default: 7)
+              end
+            end
+            puts "#{expense[:category]}  "
+          end
 
 
     

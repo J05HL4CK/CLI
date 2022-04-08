@@ -86,10 +86,11 @@ while user_continue == true do
             key(:item).ask('Item name: ')
             key(:amount).ask('Amount: ')
             key(:frequency).ask('Payment frequency in days: ')
+
+            user_continue = continue.yes?("add another expense?")
 break if user_continue == false
-user_continue = continue.yes?("add another expense?")
       
         end
-   
+ 
     end
 end
