@@ -18,6 +18,9 @@ class UserData
     end
     # user to add category(home, transport etc) item(rent, pets etc) how often in days
     def add(category, item, amount, frequency)
+        category = $stdin.gets.chomp
+        item = $stdin.gets.chomp
+        frequency = $stdin.gets.chomp.to_i
         # push all into the storage array @inputs
         @inputs << {label: category, n: amount, days: frequency}
 
@@ -68,18 +71,21 @@ def cheep
         Headings.budget
         user_salary = salary.ask("To start using the budget tool, please enter your annual salary: ", convert: :float)
         data_storage_container << user_salary
-        #  user_expenses = expenses.ask("Let's edit some expenses, enter a category name: ", default: "Home")
+       # trying to achieve: user to add a category name that is a key and can store multiple values
+       # a named category could hold multiple expenses and be called by the key
+       # loop to continue adding expenses to category until uses wants to discontinue
+       # add a new category of expenses or continue to savings?
         expense = prompt.collect do
             key(:category).ask("Start tracking your expenses by adding a category name: ", default: "Home" )
                    
-            while prompt.yes?("Continue adding items to this category?")
+            while prompt.yes?("Add items to this category?")
               key(:item).values do
                 key(:name).ask("Enter a name for the expense: ", required: true)
                 key(:cost).ask("Enter the cost of payments $", convert: :float)
                 key(:freq).ask("Enter the period between payments: ", default: 7)
               end
             end
-            puts "#{expense[:category]}  "
+            
           end
 
 
@@ -87,11 +93,21 @@ def cheep
 
     #-----end Budget
     when "Savings"
-        puts "yes"
+        Headings.savings
+        savings = UserData.new("Savings")
+        print "Enter your current savings balance as an amount: $"
+        sav_bal = $stdin.gets.chomp.to_f
+        print 'How long did it take to save?'
+        sav_freq = $stdin.gets.chomp.to_f
+# add these params in to make a new data entry 
+        
+
+        
     when "Goals"
-        puts "yep"
+        Headings.goals
     when "Help"
-        puts "use a different app, this one sucks"
+        puts "use a different app, this one sucks"*20
+        system "clear"
     else
         puts "invalid salecta rastamun"
 
