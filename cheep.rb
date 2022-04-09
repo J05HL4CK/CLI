@@ -86,11 +86,12 @@ def cheep
         end
         # puts "Category: #{results[:category]} \n#{results[:item]}\n"
         # results.each {|category|puts "#{results[:item]}"}
-        puts "Category: #{results[:category]}" 
+        puts "Category: #{results[:category]}".black.on_white
         
-        results[:item].each {|item| puts "#{item[:name].capitalize}: #{item[:freq]}\t$#{item[:cost]}"}
-        puts "Total: $#{results[:item][:cost].sum}"
-    
+        results[:item].each { | item | puts "#{item[:name].capitalize}: #{item[:freq]}\t$#{item[:cost]}" }
+        # puts "Total: $#{results[:category][:item][:cost].sum}"
+        puts "\tTotal: $#{results[:item].sum { | item | item[:cost] }}"
+        puts "\tTotal salary: $#{user_salary}"
 
     #-----end Budget
     when "Savings"
