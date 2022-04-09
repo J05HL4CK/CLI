@@ -84,10 +84,12 @@ def cheep
               end
             end
         end
-        puts "Category: #{results[:category]} \n#{results[:item]}\n"
-        results[:item].each {|entry|puts "#{entry[:cost]}"}
-
-
+        # puts "Category: #{results[:category]} \n#{results[:item]}\n"
+        # results.each {|category|puts "#{results[:item]}"}
+        puts "Category: #{results[:category]}" 
+        
+        results[:item].each {|item| puts "#{item[:name].capitalize}: #{item[:freq]}\t$#{item[:cost]}"}
+        puts "Total: $#{results[:item][:cost].sum}"
     
 
     #-----end Budget
@@ -106,7 +108,13 @@ def cheep
         
     when "Goals"
         Headings.goals
+        # use tty sliders or range bars to show how far a user is from goals?
     when "Help"
+        # how to navigate app
+        # how to enter and delete entries
+        # view users file of saved data
+
+
         puts """
              Sorry, I'm an app. Please see a financial advisor
              """
