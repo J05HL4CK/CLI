@@ -1,10 +1,11 @@
 #things i want to work with
 #name of whats displayed
 # some headings
-
+require "colorize"
 module Headings
 
     def Headings.welcome
+        
         puts "---------------------------------------------------------------"
         puts %Q{Welcome to CHEEP, the little budget app for your command line}
         puts "---------------------------------------------------------------"
@@ -36,9 +37,13 @@ module Headings
     end
     def Headings.goals
         system "clear"
-        puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
-        puts  "*                      GOALS TOOL                             *"
-        puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
+        puts """
+        *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*     
+        *                                                             *     
+        *                      GOALS TOOL                             *     
+        *                                                             *     
+        *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*     """.colorize(:color => :white, :background => :light_blue)
+
     end
     def Headings.invalid_warning
         system "clear"

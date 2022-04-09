@@ -95,7 +95,10 @@ def cheep
         # if freq is 7, then period is equal to 1, multiply cost by 52 etc etc?
         # or keep it as 1 week an show user the diff?
         puts "Weekly outgoings: $#{results[:item].sum { | item | item[:cost] }}".red.on_white
-
+       cat_cost_total = results[:item].sum {|item|item[:cost]}
+       weekly_salary  = user_salary / 52
+       disp_inc = weekly_salary - cat_cost_total
+       puts "Disposable income: $#{disp_inc}".green.on_white
     #-----end Budget
     when "Savings"
 
