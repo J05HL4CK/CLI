@@ -79,32 +79,25 @@ def cheep
             while prompt.yes?("Add items to this category?")
               key(:item).values do
                 key(:name).ask("Enter a name for the expense: ", required: true)
-                key(:cost).ask("Enter the cost of payments $", convert: :float)
-                key(:freq).ask("Enter the period between payments in days: ", default: 7)
+                key(:cost).ask("Enter the cost of payments $", required: true, convert: :float,)
+                key(:freq).ask("Enter the period between payments in days: ", required: true, default: 7)
               end
             end
         end
         # puts "Category: #{results[:category]} \n#{results[:item]}\n"
         # results.each {|category|puts "#{results[:item]}"}
         puts "Category: #{results[:category]}".black.on_white
+        puts "Weekly income: $#{user_salary / 52 }".green.on_white
         
         results[:item].each { | item | puts "#{item[:name].capitalize}: #{item[:freq]}\t$#{item[:cost]}" }
         # puts "Total: $#{results[:category][:item][:cost].sum}"
-        puts "\tTotal: $#{results[:item].sum { | item | item[:cost] }}"
-        puts "\tTotal salary: $#{user_salary}"
+
+        # if freq is 7, then period is equal to 1, multiply cost by 52 etc etc?
+        # or keep it as 1 week an show user the diff?
+        puts "Weekly outgoings: $#{results[:item].sum { | item | item[:cost] }}".red.on_white
 
     #-----end Budget
     when "Savings"
-        Headings.savings
-        savings = UserData.new("Savings")
-        print "Enter your current savings balance as an amount: $"
-        sav_bal = $stdin.gets.chomp.to_f
-        print 'How many days did it take to save? '
-        sav_freq = $stdin.gets.chomp.to_i
-        # add these params in to make a new data entry 
-        savings.add("Realised", "Capital", sav_bal, sav_freq)
-        puts savings
-        
 
         
     when "Goals"
