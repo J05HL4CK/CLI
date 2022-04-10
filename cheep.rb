@@ -57,7 +57,7 @@ def cheep
     # prompt for user name and assign to user_name variable
     user_name = name.ask("Begin by entering a user name", default: ENV["USER"])
     # push user_name to data storage container
-    # data_storage_container << user_name 
+    data_storage_container << user_name 
     
     # prompt user to select an option to continue
     menu = main_menu.select("To continue, please choose one of the following options: ", %w(Budget Savings Goals Help))
@@ -75,7 +75,7 @@ def cheep
        # add a new category of expenses or continue to savings?
         results = expense.collect do
             key(:category).ask("Start tracking your expenses by adding a category name: ", default: "Home" )
-                   
+            # if yes user continues to add items, if no go back to        
             while prompt.yes?("Add items to this category?")
               key(:item).values do
                 key(:name).ask("Enter a name for the expense: ", required: true)
@@ -99,17 +99,34 @@ def cheep
        weekly_salary  = user_salary / 52
        disp_inc = weekly_salary - cat_cost_total
        puts "Disposable income: $#{disp_inc}".green.on_white
+    
     #-----end Budget
     when "Savings"
+        Headings.savings
+        #amount of savings
+        #current date
+        #how long did it take to accumulate
+        #amount/period
+        # add entries
+        #delete entries
+        #display amount over time, table or slider?
+
 
         
     when "Goals"
         Headings.goals
         # use tty sliders or range bars to show how far a user is from goals?
+        # short term
+        #mid term
+        # long term
+        #based on disposable income- how long to get to goals?
+        # compare savings to goals - difference? time till? 
+
     when "Help"
         # how to navigate app
         # how to enter and delete entries
         # view users file of saved data
+        
 
 
         puts """
