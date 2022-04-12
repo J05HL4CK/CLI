@@ -3,6 +3,8 @@
 # some headings
 require "colorize"
 module Headings
+    @cool_spacer = "*-*".colorize(:color => :light_black, :background => :light_cyan) * 28
+    @spacer = "-".colorize(:color => :light_black, :background => :light_cyan) * 84
     def Headings.start
 
         puts " Created by Joshua Lack                                                             ".colorize(:color => :magenta, :background => :light_cyan)
@@ -42,14 +44,14 @@ module Headings
         puts " Thanks so much for downloading my app. I hope you find it useful!                                                                                     .".colorize(:color => :light_cyan, :background => :light_cyan)
         puts " If you have any ideas for how CHEEP could be improved please feel free to contribute!                                      .".colorize(:color => :light_cyan,:background => :light_cyan)
         puts " Version 1.0                                      Source githublink                 ".colorize(:color => :magenta, :background => :light_cyan)                                               
-    
+        
                                                         
                                                         
     
     end
     def Headings.welcome
         
-        puts "---------------------------------------------------------------"
+        puts @spacer
         puts %Q{Welcome to CHEEP, the little budget app for your command line}
         puts "---------------------------------------------------------------"
         puts "|       ᕙ(`▿´)ᕗ cheep!               ᕙ(`▿´)ᕗ cheep!           |"
@@ -62,16 +64,21 @@ module Headings
     end
     def Headings.budget
         system "clear"
-        puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
-        puts  "*                       BUDGET TOOL                           *"
-        puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
-
-        puts " ϵ( ‘ ◇ ’ )϶ Use the budget tool to track your expenses ϵ( ‘ ◇ ’ )϶ "
-        puts "---------------------------------------------------------------"
+        
+        puts @cool_spacer
+        puts @spacer.colorize(:color => :light_cyan,:background => :light_cyan)
+        puts  "                              B U D G E T  T O O L                           ".colorize(:color => :magenta, :background => :light_cyan)
+        puts @spacer.colorize(:color => :light_cyan,:background => :light_cyan)
+        puts @cool_spacer
+        puts @spacer.colorize(:color => :light_cyan,:background => :light_cyan)
+        puts "      ϵ( ‘ ◇ ’ )϶    Use the budget tool to track your expenses       ϵ( ‘ ◇ ’ )϶      ".colorize(:color => :magenta, :background => :light_cyan)
+        puts @spacer.colorize(:color => :light_cyan,:background => :light_cyan)
+        puts @spacer
+        puts @spacer.colorize(:color => :light_cyan,:background => :light_cyan)
     end
     def Headings.savings
         system "clear"
-        puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
+        puts @cool_spacer
         puts  "*                       SAVINGS TOOL                          *"
         puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
         # short description of functions and how to use?

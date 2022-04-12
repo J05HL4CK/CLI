@@ -1,7 +1,7 @@
 require 'colorize' # colour background and font 
 require_relative("./heads_class") # headings and invalid warning (maybe use tty for invalids)
 require "tty-prompt" # menus and prompts
-# 
+# require money - avoid weird rounding with float numbers?
 
 #-----Cheep Budget app Start-----
 def cheep
@@ -18,7 +18,7 @@ def cheep
     continue = TTY::Prompt.new
     prompt = TTY::Prompt.new
     # display welcome message to user - first point of contact for user
-    Headings.welcome
+    Headings.start
     # prompt for user name and assign to user_name variable
     user_name = name.ask("Begin by entering a user name", default: ENV["USER"])
     # push user_name to data storage container
