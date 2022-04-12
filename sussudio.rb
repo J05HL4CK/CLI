@@ -5,7 +5,7 @@
 #options
 #choose an option (budget savings goals compare)
 # ------BUDGET------
-# enter annual salary and have it stored ()
+# enter annual salary and have it stolight_cyan ()
 # edit expenses (entry-data_category cost freq)
 #option to view itemised summary and total 
 #move to next step or exit
@@ -94,19 +94,87 @@ require "tty-prompt"
 #  
     # end
 # end
-prompt = TTY::Prompt.new
-result = TTY::Prompt.new
-result = prompt.collect do
-    key(:name).ask("Name?")
-  
-    key(:age).ask("Age?", convert: :int)
-  
-    while prompt.yes?("continue?")
-      key(:addresses).values do
-        key(:street).ask("Street?", required: true)
-        key(:city).ask("City?")
-        key(:zip).ask("Zip?", validate: /\A\d{3}\Z/)
-      end
-    end
-  end
-  puts result
+
+# ===================================================================
+# class UserData
+#     # read and write access to categories and inputs 
+#     attr_accessor :data_category, :inputs
+#     # initialise number of entries 
+#     @@n_entries = 0
+#     # specify the data budget/ savings/ goals etc with data_cat
+#     def initialize(data_category)
+#        @data_category = data_category
+#        # storage array for user inputs
+#        @inputs = []
+#        # plus 1 for every entry that's added 
+#        @@n_entries += 1
+               
+#     end
+#     # user to add category(home, transport etc) item(rent, pets etc) how often in days
+#     def add(category, item, amount, frequency)
+#         # push all into the storage array @inputs
+#         @inputs << {label: category, n: amount, days: frequency}
+
+#     end
+#     # delete the last entry
+#     def delete_last
+#         @inputs.pop
+#     end
+#     # display category, amount of entries and all entries 
+#     def display_all
+#         puts "Data Category: #{@data_category.capitalize} User Entries: #{@inputs.length}"
+#         @inputs.each { | entry | puts "\n\t #{entry[:label]} $#{entry[:n]}  #{entry[:days]}."}
+#         puts "\n\n#{@data_category.capitalize} Input Total: $#{@inputs.sum {|h|h[:n]}} "    
+#     end
+#     # overide string to provide meaningful data when called
+#     def to_s
+#         return "Data category: #{@data_category.capitalize},\tEntries: #{@inputs.length}"
+
+#     end
+# end
+require "colorize"
+def yeet
+
+    puts " Created by Joshua Lack                                                             ".colorize(:color => :magenta, :background => :light_cyan)
+    puts " L337 BUDG37 4PP 4 N3RD5                                                                        ".colorize(:color => :light_cyan, :background => :light_cyan)
+    
+    puts "              ..-==\"\"\"\"==__                                                     ".colorize(:color => :light_yellow, :background => :light_cyan)
+    puts "              /              \\                                                     ".colorize(:color => :light_yellow, :background => :light_cyan)
+    puts "          ___/   <0)          \\                                                    ".colorize(:color => :light_yellow, :background => :light_cyan)
+    puts "       _=\"___\\                |                                                   ".colorize(:color => :light_yellow, :background => :light_cyan)
+    puts "        =__  /                |                                                     ".colorize(:color => :light_yellow, :background => :light_cyan)
+    puts "           ~~\\_              /___                                                  ".colorize(:color => :light_yellow, :background => :light_cyan)
+    puts "              \"/      ,.=\"~~~\"==_\"\"=__                                         ".colorize(:color => :light_yellow, :background => :light_cyan)
+    puts "              /^ ^  .\" \\ \\ \\ \\ \\ \"=_  \"\"=_                                 ".colorize(:color => :light_yellow, :background => :light_cyan)
+    puts "              | ^ ^ |\"-_ \\ \\ \\ \\ \\ \=_    \"\"=_                              ".colorize(:color => :light_yellow, :background => :light_cyan)
+    puts "               \\ ^  \___\"-_\\ \\ \\ \\ \\ \=_      \"=_                           ".colorize(:color => :light_yellow, :background => :light_cyan)
+    puts "                \\ ^ ^\\ _____\\_\\_\\_\\_\\_\\_\"=_      \"=_                      ".colorize(:color => :light_yellow, :background => :light_cyan)
+    puts "                 \\ ^  ^\ -_-_-_-_-_-_-_-_-_\"=_      \"=_                          ".colorize(:color => :light_yellow, :background => :light_cyan)
+    puts "                  \\^ ^  \"-=_ -_-_-_-_-_-_-_-_-\"\"=__    \"=_                     ".colorize(:color => :light_yellow, :background => :light_cyan)
+    puts "                   \\\"=_ ^  ^ \"-_ -_-_-_-_-_-_-_-_-_-\"=_    \"=_                 ".colorize(:color => :light_yellow, :background => :light_cyan)
+    puts "                      \\\"=_^     ~~\"\"-===_______________\\      \"=.___________  ".colorize(:color => :light_yellow, :background => :light_cyan)  
+    puts "                         \"\"=_      -----______           _______\\_------- /      ".colorize(:color => :light_yellow, :background => :light_cyan)
+    puts "                             \"\"=-_______      \"\"\"\________=. \\  -_ -.\"-- /   ".colorize(:color => :light_yellow, :background => :light_cyan)
+    puts "                              // -- /   ~~~~--_   |         \". \  -_ ~- /          ".colorize(:color => :light_yellow, :background => :light_cyan)
+    puts "                               \\ \\  \\    ______\"\"\"            \"=_\\  \"-./   ".colorize(:color => :light_yellow, :background => :light_cyan)
+    puts "                                  \\ ----- -------\"               -_\\  /          ".colorize(:color => :light_yellow, :background => :light_cyan)
+    puts "                                  // --- /                         - /              ".colorize(:color => :light_yellow, :background => :light_cyan)
+    puts "                                   \\ \\  \\                           ~            ".colorize(:color => :light_yellow, :background => :light_cyan)
+    puts "                                      \\ \\                                         ".colorize(:color => :light_yellow, :background => :light_cyan)
+    puts "                /$$$$$$  /$$   /$$ /$$$$$$$$ /$$$$$$$$ /$$$$$$$                     ".colorize(:color => :light_yellow, :background => :light_cyan)
+    puts "               /$$__  $$| $$  | $$| $$_____/| $$_____/| $$__  $$                    ".colorize(:color => :light_yellow, :background => :light_cyan)
+    puts "              | $$  \\__/| $$  | $$| $$      | $$      | $$  \\ $$                  ".colorize(:color => :light_yellow, :background => :light_cyan)
+    puts "              | $$      | $$$$$$$$| $$$$$   | $$$$$   | $$$$$$$/                    ".colorize(:color => :light_yellow, :background => :light_cyan)
+    puts "              | $$      | $$__  $$| $$__/   | $$__/   | $$____/                     ".colorize(:color => :light_yellow, :background => :light_cyan)
+    puts "              | $$    $$| $$  | $$| $$      | $$      | $$                          ".colorize(:color => :light_yellow, :background => :light_cyan)
+    puts "              |  $$$$$$/| $$  | $$| $$$$$$$$| $$$$$$$$| $$                          ".colorize(:color => :light_yellow, :background => :light_cyan)
+    puts "               \\______/ |__/  |__/|________/|________/|__/                         ".colorize(:color => :light_yellow, :background => :light_cyan)
+    puts " Thanks so much for downloading my app. I hope you find it useful!                                                                                     .".colorize(:color => :light_cyan, :background => :light_cyan)
+    puts " If you have any ideas for how CHEEP could be improved please feel free to contribute!                                      .".colorize(:color => :light_cyan,:background => :light_cyan)
+    puts " Version 1.0                                      Source githublink                 ".colorize(:color => :magenta, :background => :light_cyan)                                               
+
+                                                    
+                                                    
+
+end
+yeet
