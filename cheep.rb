@@ -15,6 +15,7 @@ def cheep
     salary = TTY::Prompt.new
     # init expenses 
     expense = TTY::Prompt.new
+    # category entries loop init
     continue = TTY::Prompt.new
     prompt = TTY::Prompt.new
     # display welcome/start message to user - first point of contact for user
@@ -34,34 +35,36 @@ def cheep
         Headings.budget
         user_salary = salary.ask("To start using the budget tool, please enter your annual salary: ", convert: :float)
         data_storage_container << user_salary
-       # trying to achieve: user to add a category name that is a key and can store multiple values
+       #  user to add a category name that is a key and can store multiple values
        # a named category could hold multiple expenses and be called by the key
        # loop to continue adding expenses to category until uses wants to discontinue
        # add a new category of expenses or continue to savings?
         results = expense.collect do
             key(:category).ask("Start tracking your expenses by adding a category name: ", default: "Home" )
             # if yes user continues to add items, if no go back to        
-            while prompt.yes?("Add items to this category?")
+            while prompt.yes?("Add an entry to this category?")
               key(:item).values do
                 key(:name).ask("Enter a name for the expense: ", required: true)
                 key(:cost).ask("Enter the cost of payments $", required: true, convert: :float,)
-                key(:freq).ask("Enter the period between payments in days: ", required: true, default: 7)
+                # (7,14,30,365)
+                key(:freq).ask("Enter the payment frequency in days: ", required: true, default: 7)
               end
             end
         end
-        # puts "Category: #{results[:category]} \n#{results[:item]}\n"
-        # results.each {|category|puts "#{results[:item]}"}
+        # sort by frequency (7,14,30,365)
+        # if freq = 14 then divide cost and freq by 2 (for weekly)
+        #results[:item].sort_by {|k,v|puts v}
         puts "Category: #{results[:category]}".black.on_white
-        puts "Weekly income: $#{user_salary / 52 }".green.on_white
         
         results[:item].each { | item | puts "#{item[:name].capitalize}: #{item[:freq]}\t$#{item[:cost]}" }
         # puts "Total: $#{results[:category][:item][:cost].sum}"
-
+        
         # if freq is 7, then period is equal to 1, multiply cost by 52 etc etc?
         # or keep it as 1 week an show user the diff?
+        puts "Weekly income: $#{user_salary / 52 }".green.on_white
         puts "Weekly outgoings: $#{results[:item].sum { | item | item[:cost] }}".red.on_white
-       cat_cost_total = results[:item].sum {|item|item[:cost]}
-       weekly_salary  = user_salary / 52
+        cat_cost_total = results[:item].sum {|item|item[:cost]}
+        weekly_salary  = user_salary / 52
        disp_inc = weekly_salary - cat_cost_total
        puts "Disposable income: $#{disp_inc}".green.on_white
     

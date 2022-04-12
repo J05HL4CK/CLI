@@ -22,6 +22,7 @@ module BudgetFunctions
         n1 = amount
         monthly = (1.0 / 12) * n1
     end
+    # keep it simple!
     def BudgetFunctions.difference(a, b)
         c = a - b
     end
