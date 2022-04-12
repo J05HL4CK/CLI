@@ -80,7 +80,7 @@ module Headings
         system "clear"
         puts @cool_spacer
         puts  "*                       SAVINGS TOOL                          *"
-        puts  "*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*"
+        puts @cool_spacer
         # short description of functions and how to use?
         puts "(　＾ Θ ＾) Use the savings tool to track your savings (＾ Θ ＾  ) "
         puts "---------------------------------------------------------------"

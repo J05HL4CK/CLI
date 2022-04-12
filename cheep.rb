@@ -17,7 +17,7 @@ def cheep
     expense = TTY::Prompt.new
     continue = TTY::Prompt.new
     prompt = TTY::Prompt.new
-    # display welcome message to user - first point of contact for user
+    # display welcome/start message to user - first point of contact for user
     Headings.start
     # prompt for user name and assign to user_name variable
     user_name = name.ask("Begin by entering a user name", default: ENV["USER"])
