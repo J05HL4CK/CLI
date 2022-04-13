@@ -79,11 +79,15 @@ module Headings
     def Headings.savings
         system "clear"
         puts @cool_spacer
-        puts  "*                       SAVINGS TOOL                          *"
+        puts @spacer.colorize(:color => :light_cyan,:background => :light_cyan)
+        puts  "                              S A V I N G S  T O O L                           ".colorize(:color => :magenta, :background => :light_cyan)        
+        puts @spacer.colorize(:color => :light_cyan,:background => :light_cyan)
         puts @cool_spacer
-        # short description of functions and how to use?
-        puts "(　＾ Θ ＾) Use the savings tool to track your savings (＾ Θ ＾  ) "
-        puts "---------------------------------------------------------------"
+        puts @spacer.colorize(:color => :light_cyan,:background => :light_cyan)
+        # short description of function
+        puts "(　＾ Θ ＾) Use the savings tool to track your savings (＾ Θ ＾  ) ".colorize(:color => :magenta, :background => :light_cyan)
+        puts @spacer.colorize(:color => :light_cyan,:background => :light_cyan)
+        puts @spacer
     end
     def Headings.goals
         system "clear"

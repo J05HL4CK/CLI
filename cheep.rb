@@ -15,9 +15,11 @@ def cheep
     salary = TTY::Prompt.new
     # init expenses 
     expense = TTY::Prompt.new
-    # category entries loop init
     continue = TTY::Prompt.new
+    # category entries loop init
     prompt = TTY::Prompt.new
+    # init savings prompt
+    savings = TTY::Prompt.new
     # display welcome/start message to user - first point of contact for user
     Headings.start
     # prompt for user name and assign to user_name variable
@@ -45,9 +47,10 @@ def cheep
             while prompt.yes?("Add an entry to this category?")
               key(:item).values do
                 key(:name).ask("Enter a name for the expense: ", required: true)
+                
                 key(:cost).ask("Enter the cost of payments $", required: true, convert: :float,)
                 # (7,14,30,365)
-                key(:freq).ask("Enter the payment frequency in days: ", required: true, default: 7)
+                key(:freq).ask("Enter the payment frequency in days: ", required: true, default: 7, validate: /(7|14|30|365)/ )
               end
             end
         end
@@ -71,9 +74,10 @@ def cheep
     #-----end Budget
     when "Savings"
         Headings.savings
-        #amount of savings
-        #current date
-        #how long did it take to accumulate
+        #amount of savings: -
+            # get user savings amount
+            # stamp current date
+            # get how long did it take to accumulate
         #amount/period
         # add entries
         #delete entries
