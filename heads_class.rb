@@ -91,12 +91,15 @@ module Headings
     end
     def Headings.goals
         system "clear"
-        puts """
+        # instance variable associated with the YEEEEEEEEEET heredoc (goals header)
+        @goalsyboy = <<-YEET
         *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*     
         *                                                             *     
         *                      GOALS TOOL                             *     
         *                                                             *     
-        *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*     """.colorize(:color => :white, :background => :light_blue)
+        *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+        YEET
+        puts @goalsyboy.colorize(:color => :magenta, :background => :light_cyan)
 
     end
     def Headings.invalid_warning
