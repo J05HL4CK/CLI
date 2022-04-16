@@ -5,7 +5,7 @@
 #options
 #choose an option (budget savings goals compare)
 # ------BUDGET------
-# enter annual salary and have it sto
+# enter annual salary a
 # edit expenses (entry-data_category cost freq)
 #option to view itemised summary and total 
 #move to next step or exit

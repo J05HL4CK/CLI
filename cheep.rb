@@ -1,5 +1,5 @@
 require 'colorize' # colour background and font 
-require_relative("./heads_class") # headings and invalid warning (maybe use tty for invalids)
+require_relative("./headings") # headings and invalid warning (maybe use tty for invalids)
 require "tty-prompt" # menus and prompts
 # require money - avoid weird rounding with float numbers?
 
@@ -41,7 +41,7 @@ def cheep
         # a named category could hold multiple expenses and be called by the key
         # loop to continue adding expenses to category until uses wants to discontinue
         # add a new category of expenses or continue to savings?
-        results = expense.collect do
+        user_expenses = expense.collect do
         key(:category).ask("Start tracking your expenses by adding a category name: ", default: "Home" )
         # if yes user continues to add items, if no go back to        
         while prompt.yes?("Add an entry to this category?")
@@ -55,17 +55,17 @@ def cheep
         end
         # sort by frequency (7,14,30,365)
         # if freq = 14 then divide cost and freq by 2 (for weekly)
-        #results[:item].sort_by {|k,v|puts v}
-        puts "Category: #{results[:category]}".black.on_white
+        #user_expenses[:item].sort_by {|k,v|puts v}
+        puts "Category: #{user_expenses[:category]}".black.on_white
         
-        results[:item].each { | item | puts "#{item[:name].capitalize}: #{item[:freq]}\t$#{item[:cost]}" }
-        # puts "Total: $#{results[:category][:item][:cost].sum}"
+        user_expenses[:item].each { | item | puts "#{item[:name].capitalize}: #{item[:freq]}\t$#{item[:cost]}" }
+        # puts "Total: $#{user_expenses[:category][:item][:cost].sum}"
         
         # if freq is 7, then period is equal to 1, multiply cost by 52 etc etc?
         # or keep it as 1 week an show user the diff?
         puts "Weekly income: $#{user_salary / 52 }".green.on_white
-        puts "Weekly outgoings: $#{results[:item].sum { | item | item[:cost] }}".red.on_white
-        cat_cost_total = results[:item].sum {|item|item[:cost]}
+        puts "Weekly outgoings: $#{user_expenses[:item].sum { | item | item[:cost] }}".red.on_white
+        cat_cost_total = user_expenses[:item].sum {|item|item[:cost]}
         weekly_salary  = user_salary / 52
         disp_inc = weekly_salary - cat_cost_total
         puts "Disposable income: $#{disp_inc}".green.on_white
