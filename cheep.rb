@@ -33,26 +33,25 @@ def cheep
     case menu
     #-----start Budget----- 
     when "Budget"
-        # budget heading 
+            # budget heading 
         Headings.budget
         user_salary = salary.ask("To start using the budget tool, please enter your annual salary: ", convert: :float)
         data_storage_container << user_salary
-       #  user to add a category name that is a key and can store multiple values
-       # a named category could hold multiple expenses and be called by the key
-       # loop to continue adding expenses to category until uses wants to discontinue
-       # add a new category of expenses or continue to savings?
+        #  user to add a category name that is a key and can store multiple values
+        # a named category could hold multiple expenses and be called by the key
+        # loop to continue adding expenses to category until uses wants to discontinue
+        # add a new category of expenses or continue to savings?
         results = expense.collect do
-            key(:category).ask("Start tracking your expenses by adding a category name: ", default: "Home" )
-            # if yes user continues to add items, if no go back to        
-            while prompt.yes?("Add an entry to this category?")
-              key(:item).values do
+        key(:category).ask("Start tracking your expenses by adding a category name: ", default: "Home" )
+        # if yes user continues to add items, if no go back to        
+        while prompt.yes?("Add an entry to this category?")
+            key(:item).values do
                 key(:name).ask("Enter a name for the expense: ", required: true)
-                
                 key(:cost).ask("Enter the cost of payments $", required: true, convert: :float,)
                 # (7,14,30,365)
                 key(:freq).ask("Enter the payment frequency in days: ", required: true, default: 7, validate: /(7|14|30|365)/ )
-              end
             end
+        end
         end
         # sort by frequency (7,14,30,365)
         # if freq = 14 then divide cost and freq by 2 (for weekly)
@@ -68,8 +67,8 @@ def cheep
         puts "Weekly outgoings: $#{results[:item].sum { | item | item[:cost] }}".red.on_white
         cat_cost_total = results[:item].sum {|item|item[:cost]}
         weekly_salary  = user_salary / 52
-       disp_inc = weekly_salary - cat_cost_total
-       puts "Disposable income: $#{disp_inc}".green.on_white
+        disp_inc = weekly_salary - cat_cost_total
+        puts "Disposable income: $#{disp_inc}".green.on_white
     
     #-----end Budget
     when "Savings"
