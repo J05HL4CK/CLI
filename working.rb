@@ -34,6 +34,7 @@ def cheep
   case menu
   #-----start Expenses-----
   when 'Expenses'
+    loop do 
     user_expenses = expense.collect do
       key(:category).ask('Start by adding a category name for your expenses: ', default: 'Home')
       while prompt.yes?('Add an entry to this category?')
@@ -44,7 +45,11 @@ def cheep
           key(:freq).ask('Enter the payment frequency in days: ', required: true, default: 7,
                                                                   validate: /(7|14|30|90|365)/)
         end
+        
+        
       end
+      break if yeet.keypress('Press esc to go back and enter a new category', keys: [:escape])
+    end
     end
 
   #    puts "Category: #{user_expenses[:category]}".black.on_white
