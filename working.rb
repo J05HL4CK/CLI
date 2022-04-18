@@ -48,9 +48,7 @@ def cheep
         # break if SOMETHING is false
         
       end
-       
-    end
-    end
+      
     # go back to main menu?
     # 
 
