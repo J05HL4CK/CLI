@@ -28,14 +28,13 @@ p total_income
 #--------------------------START EXPENSES-------------------------------------
 user_expenses = expense.collect do
   key(:expense_category).ask('Start by adding a category name for your expenses: ', default: 'Home')
-  while prompt.yes?("add entries?")
-  key(:item).values do
-    key(:name).ask('Enter a name for the expense: ', required: true)
-    key(:cost).ask('Enter the cost of payments $', required: true, convert: :float)
-    # (7,14,30,90,365)
-    key(:freq).ask('Enter the payment frequency in days: ', required: true, default: 7,
-                                                            validate: /(7|14|30|90|365)/)
-    
+  while prompt.yes?('add entries?')
+    key(:item).values do
+      key(:name).ask('Enter a name for the expense: ', required: true)
+      key(:cost).ask('Enter the cost of payments $', required: true, convert: :float)
+      # (7,14,30,90,365)
+      key(:freq).ask('Enter the payment frequency in days: ', required: true, default: 7,
+                                                              validate: /(7|14|30|90|365)/)
     end
   end
 end
@@ -43,9 +42,12 @@ user_expenses[:item].each { |item| puts "#{item[:name].capitalize}: #{item[:freq
 # sorted = user_expenses[:item].any? { | items | items[:item].include?(14)}
 # sorted = user_expenses[:item][:freq].any?(14)
 # puts sorted
-user_expenses[:item].each { |item|  item.any?(14)}
-p user_expenses
+# user_expenses[:item].each { |item| item.any?(14) }
+# user_expenses[:item].each.key(:freq).include?(14) 
+# user_expenses[:item].any? { |_item, freq| freq == (14) }
 
+# sorted = @item[:freq].find_all { |freq| freq == (14) }
+p user_expenses
 
 # ------------------------END EXPENSES---------------------------------------
 # now I have the data.. ,i need total cost of expenses.
