@@ -45,10 +45,15 @@ user_expenses[:item].each { |item| puts "#{item[:name].capitalize}: #{item[:freq
 # user_expenses[:item].each { |item| item.any?(14) }
 # user_expenses[:item].each.key(:freq).include?(14) 
 # user_expenses[:item].any? { |_item, freq| freq == (14) }
-
+# sorted = user_expenses[:item][0].each { |item| item[:freq].include?(14) }
 # sorted = @item[:freq].find_all { |freq| freq == (14) }
+# sorted = user_expenses[:item].sort_by { |item| item[:freq].to_i }
+sorted = user_expenses[:item][:freq].each_value 
 p user_expenses
+p sorted 
 
+
+# while input != "exit" do - 
 # ------------------------END EXPENSES---------------------------------------
 # now I have the data.. ,i need total cost of expenses.
 # i need to sort or map the data so freqs are the same before summing
