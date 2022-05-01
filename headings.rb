@@ -5,7 +5,7 @@ require "colorize"
 module Headings
     @cool_spacer = "*-*".colorize(:color => :light_black, :background => :light_cyan) * 28
     @spacer = "-".colorize(:color => :light_black, :background => :light_cyan) * 84
-    def Headings.start
+    def self.start
 
         puts " Created by Joshua Lack                                                             ".colorize(:color => :magenta, :background => :light_cyan)
         puts " L337 BUDG37 4PP 4 N3RD5                                                                        ".colorize(:color => :light_cyan, :background => :light_cyan)

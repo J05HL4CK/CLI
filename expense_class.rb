@@ -29,7 +29,7 @@ class Expenses
         @@n_cats
     end
     def calc
-        # maths goes here
+        # call budget functions in?
 
     end
     def display

@@ -8,9 +8,9 @@
 
 1. ## Styling convention
 
-    rubocop attribution goes here
+    Ruby style in convention with <https://rubystyle.guide/> using Rubocop
 
-1. ## Features
+2. ## Features
     
     - 1
     - 2
